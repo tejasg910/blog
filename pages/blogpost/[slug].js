@@ -1,24 +1,67 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { useRouter } from 'next/router';
+import * as fs from 'fs'
+
 import styles from "../../styles/BlogPost.module.css"
-const Slug = () => {
+const Slug = (props) => {
+  const [blog, setblog] = useState(props.myBlog);
     const router = useRouter();
     const {slug} = router.query;
-
+    function createMarkup(content) {
+      return {__html: content};
+    }
+    
+    
+      
+    
+    
   return (
     <div className={styles.container}>
-
-      <main className={styles.main}>
-        <h1>Title of the page {slug}</h1>
+        <main className={styles.main} >
+        <h1>{blog && blog.title}</h1>
         <hr />
-        <div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore dolores alias nemo voluptate quos a neque earum autem quasi nulla. Qui, ullam! In totam, facilis voluptatem ducimus nemo odio corporis.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita laboriosam enim autem sint obcaecati nesciunt velit, iure rerum aspernatur tenetur voluptatibus pariatur exercitationem culpa. Corrupti ea reprehenderit incidunt recusandae. Laborum minima, earum culpa eligendi, cum dolore, nam corrupti sit vero debitis error eos illum sapiente cupiditate. Minima nobis blanditiis non.
-        </div>
+       {blog && <div dangerouslySetInnerHTML={createMarkup(blog.description)} />}
       </main>
-   
     </div>
   )
 }
 
+
+  // export async function getServerSideProps(context){
+
+  //   const {slug} = context.query;
+  //   let data = await  fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
+
+  //   let myBlog = await data.json();
+    
+    
+  //   return { props: {myBlog} }
+    
+  //   }
+
+
+
+
+      export async function getStaticPaths() {
+        return {
+            paths: [
+                { params: { slug: 'learn-react' } },
+                { params: { slug: 'learn-mongodb' } },
+                { params: { slug: 'learn-javascript' } },
+                { params: { slug: 'learn-nextjs' } },
+            ],
+            fallback: true // false or 'blocking'
+        };
+    }
+    
+    export async function getStaticProps(context) {
+        const { slug } = context.params;
+    
+    
+        let myBlog = await fs.promises.readFile(`blogdata/${slug}.json`, 'utf-8')
+    
+        return {
+            props: { myBlog: JSON.parse(myBlog) }, // will be passed to the page component as props
+        }
+    }
 export default Slug;
