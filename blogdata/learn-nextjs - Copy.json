@@ -1,9 +1,9 @@
 {
-    "title": "How to learn Mongodb",
+    "title": "How to learn Next js",
     "description": "Javascript is a browser level language where you can code about the client side of the website. It is one of the most popular and used language so far by the programmers. Javascript also have frameworks. The most popular frameworks are React js, Next js, Typescript, Kaboom js, Strapi etc.",
-    "metadesc": "Here we will see about the Mongodb basics....",
- 
-    "slug": "learn-mongodb",
-    "id": 5
+    "metadesc": "Here we will see about the nextjs basics....",
+
+    "slug": "learn-nextjs",
+    "id": 7
 
 }

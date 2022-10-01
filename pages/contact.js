@@ -42,23 +42,23 @@ const handelChange = (e)=>{
      <form action='/api/postcontact' method='post' onSubmit={handleSubmit} >
      <div className={styles.mb3}>
     <label htmlFor="name" className={styles.formlabel}>Your Name</label>
-    <input type="text" className="form-control" id="name" aria-describedby="emailHelp" name="name" value={user.name} onChange={handelChange}/>
+    <input  type="text" className={`form-control ${styles.input}`} required id="name" aria-describedby="emailHelp" name="name" value={user.name} onChange={handelChange}/>
   </div>
   <div className={styles.mb3}>
     <label htmlFor="email" className={styles.formlabel}>Email address</label>
-    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" name="email" value={user.email} onChange={handelChange}/>
+    <input required type="email" className={`form-control ${styles.input}`} id="email" aria-describedby="emailHelp" name="email" value={user.email} onChange={handelChange}/>
     
   </div>
   <div className={styles.mb3}>
     <label htmlFor="phone" className={styles.formlabel}>Mobile</label>
-    <input type="phone" className="form-control" id="phone" value={user.phone} name="phone" onChange={handelChange}/>
+    <input  type="phone" className={`form-control ${styles.input}`} id="phone" value={user.phone} name="phone" onChange={handelChange}/>
   </div>
   <div className={styles.mb3}>
     <label htmlFor="desc" className={styles.formlabel}>Your query</label>
-    <textarea type="text" className="form-control" id="desc" value={user.desc} name="desc" onChange={handelChange}/>
+    <textarea type="text" className={`form-control ${styles.input}`} id="desc" value={user.desc} name="desc" onChange={handelChange}/>
   </div>
 
-  <button type="submit" className="btn btn-primary">Submit</button>
+  <button type="submit" className={styles.btn}>Submit</button>
 </form>
     </div>
   )

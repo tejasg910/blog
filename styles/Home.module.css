@@ -42,12 +42,14 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .title,
 .description {
   text-align: center;
+  margin-top: 14px;
+  margin-bottom: 0;
 }
 
 .description {
@@ -147,6 +149,44 @@
 }
 
 .myImg{
-  border-radius: 10px;
+  border-radius: 92px;
+  width: 140px;
 
+}
+
+.smaldesc{
+  font-size: 13px;
+}
+
+.h2{
+  font-size: 2.5rem;
+}
+
+.h3{
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.btn{
+  color: green;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: black;
+  font-weight: bold;
+  transition: 0.5s all;
+  margin-bottom: 20px;
+}
+
+.btn:hover{
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.blogdetail{
+  margin-bottom: 10px;
+}
+
+.readmore{
+  margin-bottom: 20px;
 }

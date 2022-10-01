@@ -20,3 +20,19 @@
   .datalist{
     width: 400px;
   }
+
+  .btn{
+    color: green;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: black;
+    font-weight: bold;
+    transition: 0.5s all;
+    margin-bottom: 20px;
+}
+
+.btn:hover{
+    background-color: transparent;
+    border: 1px solid black;
+  }
